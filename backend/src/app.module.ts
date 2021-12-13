@@ -4,11 +4,13 @@ import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { UserModule } from './user/user.module';
-import { CalcutatorModule } from './calcutator/calcutator.module';
+import { CalculatorController } from './calculator/calculator.controller';
+import { CalculatorService } from './calculator/calculator.service';
+import { CalculatorModule } from './calculator/calculator.module';
 
 @Module({
-  imports: [UserModule, CalcutatorModule],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  imports: [UserModule, CalculatorModule],
+  controllers: [AppController, UserController, CalculatorController],
+  providers: [AppService, UserService, CalculatorService],
 })
 export class AppModule {}

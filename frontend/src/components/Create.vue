@@ -26,7 +26,7 @@
 <script>
 import axios from "axios";
 import { server } from "@/utils/helper";
-//import router from "@/router";
+
 export default {
   data() {
     return {
@@ -47,7 +47,6 @@ export default {
       axios.post(`${server.baseURL}/user/post`, data).then(response => { // blog/post
         console.log(response)
         this.result = response.data.message
-        //router.push({ name: "home" });
       });
     }
   }

@@ -2,21 +2,17 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HomeComponent from '@/views/Home';
 import UserComponent from '@/views/User';
-//import EditComponent from '@/components/Edit';
-//import CreateComponent from '@/components/Create';
-//import PostComponent from '@/components/Post';
+import CalculatorComponent from '@/views/Calculator';
 
-Vue.use(Router)
+Vue.use(Router) //router 기능 확장 선언
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    { path: '/', redirect: { name: 'home' } },
-    { path: '/home', name: 'home', component: HomeComponent },
-    { path: '/user', name: 'user', component: UserComponent },
-    //{ path: '/create', name: 'Create', component: CreateComponent },
-    //{ path: '/edit/:id', name: 'Edit', component: EditComponent },
-    //{ path: '/post/:id', name: 'Post', component: PostComponent }
+export default new Router({ //router 객체생성
+  mode: 'history',  //라우터 '#'제거(UR이 변경될 때 페이지 다시 로드되게 가능)
+  base: process.env.BASE_URL, //.js 앱이 배포되는 기본 경로
+  routes: [ //경로들을 routes 배열에 추가
+    { path: '/', redirect: { name: 'home' } },  //home으로 리다이랙트
+    { path: '/home', name: 'home', component: HomeComponent },  //Home 컴포넌트 path 추가
+    { path: '/user', name: 'user', component: UserComponent },  //User 컴포넌트 path 추가
+    { path: '/calculator', name: 'calculator', component: CalculatorComponent }   //Calculator 컴포넌트 path 추가
   ]
 });
