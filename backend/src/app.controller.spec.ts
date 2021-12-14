@@ -1,9 +1,10 @@
+//컨트롤러를 위한 유닛 테스트
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './app.controller'; //app.controller.ts 호출
+import { AppService } from './app.service'; //app.service.ts 호출
 
-describe('AppController', () => {
-  let appController: AppController;
+describe('AppController', () => { //AppController 선언
+  let appController: AppController; //AppController 변수 지정
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
@@ -14,7 +15,7 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
+  describe('root', () => {//root 선언
     it('should return "Hello World!"', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
