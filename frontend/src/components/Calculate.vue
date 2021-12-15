@@ -19,6 +19,7 @@
           <h3> Result </h3>
         <div id="result" class="form-wrapper">   <!--결과 출력 div-->
             <xmp> {{ result }} </xmp>    <!--http response로 받은 result 결과 출력-->
+            <xmp> {{number1}} + {{number2}} = {{sum}} </xmp>
         </div>
         </div>
     </div>
@@ -31,8 +32,9 @@ import { server } from "@/utils/helper";    //utils파일에 등록한 서버 ba
 export default {    //vue 객체 export
     data() {    //vue 객체 내부적으로 사용하는 변수 선언
         return {    
-        number1: Number,    //입력 받을 첫번째 숫자 변수 선언
-        number2: Number,    //입력 받을 두번째 숫자 변수 선언
+        number1: 0,    //입력 받을 첫번째 숫자 변수 선언
+        number2: 0,    //입력 받을 두번째 숫자 변수 선언
+        sum: 0,
         result: null        //결과 저장할 변수 선언
         };
     },
@@ -48,6 +50,9 @@ export default {    //vue 객체 export
         axios.post(`${server.baseURL}/calculator/add`, data).then(response => {     // http post 요청: 서버 해당 URL에 data형식으로 데이터보냄 -> backend/main.js로 이동
             console.log(response)           //콘솔에 로그 출력
             this.result = response.data.message     //http response 전달 받아서 result에 저장(html에서 {{result}} 로 화면에 출력)
+            this.number1 = response.data.data.num1
+            this.number2 = response.data.data.num2
+            this.sum = response.data.data.sum
         });
         }
     }

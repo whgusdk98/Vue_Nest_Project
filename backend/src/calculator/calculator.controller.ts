@@ -20,7 +20,11 @@ export class CalculatorController {  //CalculatorController 선언
       const add_num = await this.CalculatorService.add(NumberDTO);  //CalculatorService add함수 호출 후 저장
       return res.status(HttpStatus.OK).json({ //응답 반환
             message: "Post 요청, Sum 성공! \n"+NumberDTO.number1+" + "+NumberDTO.number2+" = "+add_num+" 입니다.",
-            post: add_num
+            data: {
+                num1: NumberDTO.number1,
+                num2: NumberDTO.number2,
+                sum: add_num
+                } 
       })
     }
 }
