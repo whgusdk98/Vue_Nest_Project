@@ -3,7 +3,7 @@
 
 ## 1. frontend
 ```
-npm start serve
+npm run serve
 ```
 ## 2. backend
 ```
